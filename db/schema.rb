@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_192252) do
     t.string "location_requirement"
     t.string "fertilizer_requirement"
     t.string "root_type"
-    t.string "water_requirements"
+    t.string "water_requirement"
     t.boolean "seed_outdoors"
     t.integer "dist_to_neighbor"
     t.integer "crop_time"
