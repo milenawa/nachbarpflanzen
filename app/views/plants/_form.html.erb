@@ -15,8 +15,36 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+  <div class="field">
+    <%= form.label :water_requirement,  "Wasserbedarf"%>
+    <%= form.select :water_requirement, ['viel', 'mäßig', 'wenig'], {include_blank: 'unbekannt'}%>
+  </div>
+  <div class="field">
+    <%= form.label :fertilizer_requirement,  "Zehrstärke"%>
+    <%= form.select :fertilizer_requirement, ['stark', 'mittel', 'schwach'], {include_blank: 'unbekannt'}%>
+  </div>
+  <div class="field">
+    <%= form.label :location_requirement,  "Standort"%>
+    <%= form.select :location_requirement, ['sonnig', 'halbschattig', 'schattig'], {include_blank: 'unbekannt'}%>
+  </div>
+  <div class="field">
+    <%= form.label :dist_to_neighbor, "Abstand zur nächsten Pflanze" %>
+    <%= form.number_field :dist_to_neighbor, min: 0 %> cm
+  </div>
+  <div class="field">
+    <%= form.label :root_type,  "Wurzel"%>
+    <%= form.select :root_type, ['Flachwurzler', 'Tiefwurzler'], {include_blank: 'unbekannt'}%>
+  </div>
+  <div class="field">
+    <%= form.label :seed_outdoors,  "Kann die Pflanze direkt im Freiland ausgesät werden?"%>
+    <%= form.select :seed_outdoors, [['Ja', 1], ['Nein', 0]], {include_blank: 'unbekannt'}%>
+  </div>
+  <div class="field">
+    <%= form.label :crop_time, "Nach wie vielen Monaten nach Aussaat kann geerntet werden?" %>
+    Nach <%= form.number_field :crop_time, min: 0, max: 12 %> Monat(en)
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Speichern"%>
   </div>
 <% end %>

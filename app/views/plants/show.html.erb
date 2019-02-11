@@ -4,6 +4,45 @@
   <strong>Name:</strong>
   <%= @plant.name %>
 </p>
+<p>
+  <strong>Pflanzzeitpunkt:</strong>
+</p>
+<p>
+  <strong>Wasserbedarf:</strong>
+  <%= @plant.water_requirement %>
+</p>
+<p>
+  <strong>Zehrstärke:</strong>
+  <%= @plant.fertilizer_requirement %>
+</p>
+<p>
+  <strong>Standort:</strong>
+  <%= @plant.location_requirement %>
+</p>
+<p>
+  <strong>Abstand zur nächsten Pflanze:</strong>
+  <%= @plant.dist_to_neighbor %> cm
+</p>
+<p>
+  <strong>Wurzel:</strong>
+  <%= @plant.root_type %>
+</p>
+<p>
+  <% if @plant.seed_outdoors %>
+    Diese Pflanze kann direkt im Freiland ausgesät werden.
+  <% else %> 
+    Diese Pflanze kann nicht im Freiland ausgesät werden.
+  <% end %>  
+</p>
+<p>
+  <strong>Zehrstärke:</strong>
+  <%= @plant.fertilizer_requirement %>
+</p>
+  Die Ernte kann ab ca.
+  <%= @plant.crop_time %>
+  Monaten nach Aussaat stattfinden.
+<p>
+  
 
 <%= link_to 'Edit', edit_plant_path(@plant) %> |
 <%= link_to 'Back', plants_path %>
