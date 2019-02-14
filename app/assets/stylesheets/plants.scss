@@ -1,3 +1,16 @@
 // Place all the styles related to the plants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table.plant-calendar {
+    border-collapse: collapse;
+    td, th {
+        padding: 6px 6px;
+        text-align: center;
+    }
+    th:not(:first-child), td:not(:first-child) {
+        border-left: 1px #CCC solid;
+    }
+    thead {
+        border-bottom: 1px #CCC solid;
+    }
+}
