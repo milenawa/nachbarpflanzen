@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_102339) do
+ActiveRecord::Schema.define(version: 2019_02_14_205736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "impacts", force: :cascade do |t|
+    t.bigint "influencee_id", null: false
+    t.bigint "influencer_id", null: false
+    t.boolean "positive_impact"
+    t.text "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["influencee_id", "influencer_id"], name: "index_impacts_on_influencee_id_and_influencer_id", unique: true
+    t.index ["influencee_id"], name: "index_impacts_on_influencee_id"
+    t.index ["influencer_id"], name: "index_impacts_on_influencer_id"
+  end
 
   create_table "plants", force: :cascade do |t|
     t.string "name"
@@ -40,4 +52,6 @@ ActiveRecord::Schema.define(version: 2019_02_14_102339) do
     t.boolean "put_outdoors_dec"
   end
 
+  add_foreign_key "impacts", "plants", column: "influencee_id"
+  add_foreign_key "impacts", "plants", column: "influencer_id"
 end

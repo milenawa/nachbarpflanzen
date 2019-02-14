@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  influencee: one
+  influencer: one
+  positive_impact: false
+  reason: MyText
+
+two:
+  influencee: two
+  influencer: two
+  positive_impact: false
+  reason: MyText
