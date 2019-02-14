@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_192252) do
+ActiveRecord::Schema.define(version: 2019_02_14_102339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 2019_02_11_192252) do
     t.boolean "seed_outdoors"
     t.integer "dist_to_neighbor"
     t.integer "crop_time"
+    t.boolean "put_outdoors_jan"
+    t.boolean "put_outdoors_feb"
+    t.boolean "put_outdoors_mar"
+    t.boolean "put_outdoors_apr"
+    t.boolean "put_outdoors_may"
+    t.boolean "put_outdoors_jun"
+    t.boolean "put_outdoors_jul"
+    t.boolean "put_outdoors_aug"
+    t.boolean "put_outdoors_sep"
+    t.boolean "put_outdoors_oct"
+    t.boolean "put_outdoors_nov"
+    t.boolean "put_outdoors_dec"
   end
 
 end
