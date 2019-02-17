@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <section>
-  <p>
-    <strong>Name:</strong>
+  <h1>
     <%= @plant.name %>
-  </p>
+  </h1>
   <p>
     <strong>Pflanzzeitpunkt:</strong>
   </p>
@@ -29,17 +28,16 @@
     <%= @plant.root_type %>
   </p>
   <p>
-    <% if @plant.seed_outdoors %>
-      Diese Pflanze kann direkt im Freiland ausgesät werden.
-    <% else %> 
-      Diese Pflanze kann nicht im Freiland ausgesät werden.
-    <% end %>  
-  </p>
-  <p>
+    <h4>
+      <% if @plant.seed_outdoors %>
+        Aussaat Freiland
+      <% else %> 
+        Pflanzung Freiland
+      <% end %>  
+    </h4>
     <table class="plant-calendar">
       <thead>
         <tr>
-          <th></th>
           <th>Jan</th>
           <th>Feb</th>
           <th>Mär</th>
@@ -56,13 +54,6 @@
       </thead>
       <tbody>
         <tr>
-          <th>
-            <% if @plant.seed_outdoors %>
-              Aussaat Freiland
-            <% else %> 
-              Pflanzung Freiland
-          <% end %>  
-          </th>
           <td style="<%= @plant.put_outdoors_jan ? "background-color: DodgerBlue" : ""%>"></td>
           <td style="<%= @plant.put_outdoors_feb ? "background-color: DodgerBlue" : ""%>"></td>
           <td style="<%= @plant.put_outdoors_mar ? "background-color: DodgerBlue" : ""%>"></td>
@@ -79,6 +70,13 @@
       </tbody>
     </table>
   </p>
+  <p>
+    <% if @plant.seed_outdoors %>
+      Diese Pflanze kann direkt im Freiland ausgesät werden.
+    <% else %> 
+      Diese Pflanze muss vorgezogen werden.
+    <% end %>  
+  </p>
   <% if !@plant.crop_time.nil? %>
       <p>
         Die Ernte kann ab ca.
@@ -90,7 +88,7 @@
 
 <section>
   <h2>Gute Nachbarn</h2>
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Name</th>
@@ -124,7 +122,7 @@
 
 <section>
   <h2>Schlechte Nachbarn</h2>
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Name</th>
