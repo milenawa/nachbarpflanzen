@@ -116,6 +116,13 @@
           <td><%=plant.influencer.root_type%></td>
         </tr>
       <% end %>
+      <tr>
+        <td colspan="9">
+          <%= link_to new_impact_path(impact: { influencee_id: @plant.id, positive_impact: true }) do %>
+          <i class="fas fa-plus"></i> Neuer guter Nachbar
+          <%- end %>
+        </td>
+      </tr>
     </tbody>
   </table>
 </section>
@@ -137,6 +144,13 @@
           <td><%= plant.reason%></td>
         </tr>
       <% end %>
+      <tr>
+        <td colspan="9">
+          <%= link_to new_impact_path(impact: { influencee_id: @plant.id, positive_impact: false }) do %>
+          <i class="fas fa-plus"></i> Neuer schlechter Nachbar
+          <%- end %>
+        </td>
+      </tr>
     </tbody>
   </table>
 </section>

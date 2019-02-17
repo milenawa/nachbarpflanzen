@@ -9,7 +9,7 @@ class ImpactsController < ApplicationController
 
   # GET /impacts/new
   def new
-    @impact = Impact.new
+    @impact = Impact.new(impact_params)
   end
 
   # GET /impacts/1/edit
