@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_02_14_205736) do
   create_table "impacts", force: :cascade do |t|
     t.bigint "influencee_id", null: false
     t.bigint "influencer_id", null: false
-    t.boolean "positive_impact"
+    t.boolean "positive_impact", null: false
     t.text "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
