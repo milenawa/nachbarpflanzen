@@ -11,37 +11,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group row">
+    <%= form.label :name, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :name, placeholder: "Name", class: "form-control"%>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :water_requirement,  "Wasserbedarf"%>
-    <%= form.select :water_requirement, ['viel', 'mäßig', 'wenig'], {include_blank: 'unbekannt'}%>
+  <div class="form-group row">
+    <%= form.label :water_requirement, "Wasserbedarf", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.select :water_requirement, ['viel', 'mäßig', 'wenig'], {include_blank: 'unbekannt'}, class: "form-control"%>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :fertilizer_requirement,  "Zehrstärke"%>
-    <%= form.select :fertilizer_requirement, ['stark', 'mittel', 'schwach'], {include_blank: 'unbekannt'}%>
+  <div class="form-group row">
+    <%= form.label :fertilizer_requirement, "Zehrstärke", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.select :fertilizer_requirement, ['stark', 'mittel', 'schwach'], {include_blank: 'unbekannt'}, class: "form-control"%>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :location_requirement,  "Standort"%>
-    <%= form.select :location_requirement, ['sonnig', 'halbschattig', 'schattig'], {include_blank: 'unbekannt'}%>
+  <div class="form-group row">
+    <%= form.label :location_requirement, "Standort", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.select :location_requirement, ['sonnig', 'halbschattig', 'schattig'], {include_blank: 'unbekannt'}, class: "form-control"%>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :dist_to_neighbor, "Abstand zur nächsten Pflanze" %>
-    <%= form.number_field :dist_to_neighbor, min: 0 %> cm
+  <div class="form-group row">
+    <%= form.label :dist_to_neighbor, "Abstand zur nächsten Pflanze in cm", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.number_field :dist_to_neighbor, min: 0, class: "form-control"%>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :root_type,  "Wurzel"%>
-    <%= form.select :root_type, ['Flachwurzler', 'Tiefwurzler'], {include_blank: 'unbekannt'}%>
+  <div class="form-group row">
+    <%= form.label :root_type, "Wurzeltyp", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.select :root_type, ['Flachwurzler', 'Tiefwurzler'], {include_blank: 'unbekannt'}, class: "form-control"%>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :seed_outdoors,  "Kann die Pflanze direkt im Freiland ausgesät werden?"%>
-    <%= form.select :seed_outdoors, [['Ja', true], ['Nein', false]]%>
+  <div class="form-group row">
+    <%= form.label :seed_outdoors, "Kann die Pflanze direkt im Freiland ausgesät werden?", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+      <%= form.select :seed_outdoors, [['Ja', true], ['Nein', false]], {}, class: "form-control"%>
+    </div>
   </div>
-  <div class="field">
-    <label>Wann kann die Pflanze im Freiland ausgesät/gepflanzt werden?</label>
-    <table class="plant-calendar">
+  <div class="form-group row">
+    <%= form.label :seed_outdoors, "Wann kann die Pflanze im Freiland ausgesät/gepflanzt werden?", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+      <table class="plant-calendar">
         <thead>
           <tr>
             <th>Jan</th>
@@ -98,11 +113,14 @@
             </td>
           </tr>  
         </tbody>
-    </table>
+      </table>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :crop_time, "Nach wie vielen Monaten nach Aussaat kann geerntet werden?" %>
-    Nach <%= form.number_field :crop_time, min: 0, max: 12 %> Monat(en)
+  <div class="form-group row">
+    <%= form.label :crop_time, "Nach wie vielen Monaten nach Aussaat kann geerntet werden?", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+      <%= form.number_field :crop_time, min: 0, max: 12, class: "form-control"%>
+    </div>
   </div>
 
   <div class="actions">
