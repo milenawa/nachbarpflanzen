@@ -6,6 +6,7 @@ table.plant-calendar {
     td, th {
         padding: 6px 6px;
         text-align: center;
+        width: 60px;
     }
     th:not(:first-child), td:not(:first-child) {
         border-left: 1px #CCC solid;
