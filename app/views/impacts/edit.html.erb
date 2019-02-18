@@ -2,5 +2,6 @@
 
 <%= render 'form', impact: @impact %>
 
-<%= link_to 'Show', @impact %> |
-<%= link_to 'Back', plant_path(@impact.influencee) %>
+<%= link_to 'Ohne Speichern zurück', plant_path(@impact.influencee) %>
+
+<%= link_to 'Diese Nachbarschaft löschen', @impact, method: :delete, data: { confirm: 'Bist du sicher?' }, class: "float-right" %>

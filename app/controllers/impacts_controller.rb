@@ -35,15 +35,11 @@ class ImpactsController < ApplicationController
   # PATCH/PUT /impacts/1
   # PATCH/PUT /impacts/1.json
   def update
-    respond_to do |format|
       if @impact.update(impact_params)
-        format.html { redirect_to @impact, notice: 'Impact was successfully updated.' }
-        format.json { render :show, status: :ok, location: @impact }
+        redirect_to @impact.influencee, notice: 'Impact was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @impact.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /impacts/1
@@ -51,7 +47,7 @@ class ImpactsController < ApplicationController
   def destroy
     @impact.destroy
     respond_to do |format|
-      format.html { redirect_to impacts_url, notice: 'Impact was successfully destroyed.' }
+      format.html { redirect_to @impact.influencee, notice: 'Impact was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
