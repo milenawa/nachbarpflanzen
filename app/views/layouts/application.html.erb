@@ -17,9 +17,20 @@
   <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: green;">
       <div class="container">
-        <a href="/" class="navbar-brand">Nachbarpflanzen</a>
+        <a href="<%=plants_path%>" class="navbar-brand">Nachbarpflanzen</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="<%=plants_path%>">Pflanzenliste</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="<%=howto_path%>">Hilfe</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
+    
     <main class="container">
       <%= yield %>
     </main>

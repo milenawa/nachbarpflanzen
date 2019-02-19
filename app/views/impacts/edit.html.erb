@@ -1,4 +1,8 @@
-<h1>Nachbarschaft bearbeiten</h1>
+<%if @impact.positive_impact%>
+    <h1>Gute Nachbarschaft bearbeiten</h1>
+<% else %>
+    <h1>Schlechte Nachbarschaft bearbeiten</h1>
+<% end %>
 
 <%= render 'form', impact: @impact %>
 

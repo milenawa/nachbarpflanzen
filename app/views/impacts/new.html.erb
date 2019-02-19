@@ -1,4 +1,8 @@
-<h1>Neue Nachbarschaft anlegen</h1>
+<%if @impact.positive_impact%>
+    <h1>Neue gute Nachbarschaft anlegen</h1>
+<% else %>
+    <h1>Neue schlechte Nachbarschaft anlegen</h1>
+<% end %>
 
 <%= render 'form', impact: @impact %>
 
