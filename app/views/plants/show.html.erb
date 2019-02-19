@@ -21,7 +21,9 @@
       </tr>
       <tr>
         <th scope="row">Abstand zur nächsten Pflanze</th>
-        <td><%= @plant.dist_to_neighbor %> cm</td>
+          <% if !@plant.dist_to_neighbor.nil? %>
+            <td><%= @plant.dist_to_neighbor %> cm</td>
+          <% end %>
       </tr>
       <tr>
         <th scope="row">Wurzel</th>
@@ -156,6 +158,7 @@
       <tr>
         <th>Name</th>
         <th>Begründung</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -164,6 +167,7 @@
         <tr>
           <td><%= plant.influencer.name %></td>
           <td><%= plant.reason%></td>
+          <td class="float-right"><%= link_to 'Bearbeiten', edit_impact_path(plant) %></td>
         </tr>
       <% end %>
       <tr>

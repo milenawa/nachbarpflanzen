@@ -23,7 +23,7 @@ class ImpactsController < ApplicationController
 
     respond_to do |format|
       if @impact.save
-        format.html { redirect_to @impact.influencee, notice: 'Impact was successfully created.' }
+        format.html { redirect_to @impact.influencee, notice: 'Nachbarschaft wurde erfolgreich angelegt.' }
         format.json { render :show, status: :created, location: @impact }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class ImpactsController < ApplicationController
   # PATCH/PUT /impacts/1.json
   def update
       if @impact.update(impact_params)
-        redirect_to @impact.influencee, notice: 'Impact was successfully updated.'
+        redirect_to @impact.influencee, notice: 'Nachbarschaft wurde erfolgreich gespeichert.'
       else
         render :edit
       end
@@ -47,7 +47,7 @@ class ImpactsController < ApplicationController
   def destroy
     @impact.destroy
     respond_to do |format|
-      format.html { redirect_to @impact.influencee, notice: 'Impact was successfully destroyed.' }
+      format.html { redirect_to @impact.influencee, notice: 'Nachbarschaft wurde gelöscht.' }
       format.json { head :no_content }
     end
   end
