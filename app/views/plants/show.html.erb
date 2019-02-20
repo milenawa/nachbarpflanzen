@@ -7,21 +7,23 @@
 <section class="">
   <dl class="row">
     <dt class="col-md-3 col-sm-6">Wasserbedarf</dt>
-    <dd class="col-md-9 col-sm-6"><%= @plant.water_requirement %></dd>
+    <dd class="col-md-9 col-sm-6"><%= @plant.water_requirement.presence || "unbekannt"%></dd>
 
     <dt class="col-md-3 col-sm-6">Zehrstärke</dt>
-    <dd class="col-md-9 col-sm-6"><%= @plant.fertilizer_requirement %></dd>
+    <dd class="col-md-9 col-sm-6"><%= @plant.fertilizer_requirement.presence || "unbekannt"%></dd>
   
     <dt class="col-md-3 col-sm-6">Standort</dt>
-    <dd class="col-md-9 col-sm-6"><%= @plant.location_requirement %></dd>
+    <dd class="col-md-9 col-sm-6"><%= @plant.location_requirement.presence || "unbekannt"%></dd>
+
+    <dt class="col-md-3 col-sm-6">Wurzel</dt>
+    <dd class="col-md-9 col-sm-6"><%= @plant.root_type.presence || "unbekannt"%></dd>
   
     <dt class="col-md-3 col-sm-6">Abstand zur nächsten Pflanze</dt>
       <% if !@plant.dist_to_neighbor.nil? %>
         <dd class="col-md-9 col-sm-6"><%= @plant.dist_to_neighbor %> cm</dd>
+      <% else %>
+        <dd class="col-md-9 col-sm-6">unbekannt</dd>
       <% end %>
-
-    <dt class="col-md-3 col-sm-6">Wurzel</dt>
-    <dd class="col-md-9 col-sm-6"><%= @plant.root_type %></dd>
 
     <dt class="col-md-3">
       <% if @plant.seed_outdoors %>
@@ -69,21 +71,23 @@
       </div>
     </dd>
 
-    <dd class="col-sm-12">
-      <% if @plant.seed_outdoors %>
+    <% if @plant.seed_outdoors %>
+      <dd class="col-sm-12">
         Diese Pflanze kann direkt im Freiland ausgesät werden.
-      <% else %> 
+      </dd>
+    <% else %> 
+      <dd class="col-sm-12">
         Diese Pflanze muss vorgezogen werden.
-      <% end %> 
-    </dd>
+      </dd>
+    <% end %> 
 
-    <dd class="col-sm-12">
-      <% if !@plant.crop_time.nil? %>
+    <% if !@plant.crop_time.nil? %>
+      <dd class="col-sm-12">
         Die Ernte kann ab ca.
         <%= @plant.crop_time %>
         Monaten nach Aussaat stattfinden.
-      <% end %>
-    </dd>
+      </dd>
+    <% end %>
   </dl>
   <%= link_to 'Bearbeiten', edit_plant_path(@plant) %>
 </section>
@@ -110,7 +114,7 @@
       <tbody>
         <% @plant.impacts.where(positive_impact: true).each do |plant| %>
           <tr>
-            <td><%= plant.influencer.name %></td>
+            <td><%= link_to plant.influencer.name, plant.influencer, class: "btn btn-outline-success"%></td>
             <td><%= plant.reason%></td>
             <td>
               <% if plant.influencer.seed_outdoors %>
@@ -157,7 +161,7 @@
       <tbody>
         <% @plant.impacts.where(positive_impact: false).each do |plant| %>
           <tr>
-            <td><%= plant.influencer.name %></td>
+            <td><%= link_to plant.influencer.name, plant.influencer, class: "btn btn-outline-danger"%></td>
             <td><%= plant.reason%></td>
             <td class="float-right"><%= link_to 'Bearbeiten', edit_impact_path(plant) %></td>
           </tr>
